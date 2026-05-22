@@ -9,7 +9,7 @@ toc: false
   margin-bottom: 40px;
 ">
 
-<img src="images/ChatGPT Image 21 dic 2025, 11_52_37.png" style="
+<img src="https://github.com/Tux-Pi/tuxpi.github.io/blob/81d6c31ea4718eed9148be3c4db98688b5070502/images/ChatGPT%20Image%2021%20dic%202025%2C%2011_52_37.png" style="
   width: 100%;
   max-height: 400px;
   object-fit: cover;

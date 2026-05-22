@@ -5,49 +5,47 @@ toc: false
 
 # TuxPi
 
-### Linux • Self-hosting • Hardware • Retro Computing • IoT
-
-Benvenuto nel mio spazio online.  
-Qui trovi progetti, documentazione, server self-hosted, esperimenti hardware e appunti tecnici.
-
-{{< hextra/hero-headline >}}
-Open Source • Minimal • Fast
-{{< /hextra/hero-headline >}}
+Self-hosting • Linux • Hardware • IoT • Retro Computing
 
 ---
 
-## Sezioni
+Benvenuto nel mio spazio personale.
+
+Qui trovi progetti, appunti tecnici, esperimenti e documentazione su server, embedded systems e sviluppo.
+
+---
+
+## Esplora il sito
 
 {{< cards cols="2" >}}
-  {{< card link="/docs" title="Documentazione" subtitle="Guide e appunti tecnici" icon="book-open" >}}
-  {{< card link="/blog" title="Blog" subtitle="Aggiornamenti e post" icon="newspaper" >}}
-  {{< card link="/projects" title="Progetti" subtitle="ESP32, Raspberry Pi e hardware" icon="folder" >}}
-  {{< card link="/about" title="About" subtitle="Chi sono" icon="user" >}}
+  {{< card link="/docs" title="Documentazione" subtitle="Guide Linux, server, configurazioni e appunti tecnici" >}}
+  {{< card link="/blog" title="Blog" subtitle="Aggiornamenti, riflessioni e articoli" >}}
+  {{< card link="/projects" title="Progetti" subtitle="ESP32, Raspberry Pi, IoT e hardware" >}}
+  {{< card link="/about" title="About" subtitle="Chi sono e cosa faccio" >}}
 {{< /cards >}}
 
 ---
 
-## In evidenza
+## Progetti in evidenza
 
 {{< cards cols="3" >}}
-  {{< card link="/projects/esp32-weather-station" title="Weather Station" icon="cloud" >}}
-  {{< card link="/projects/retro-laptop" title="Retro Laptop Mod" icon="computer-desktop" >}}
-  {{< card link="/docs/linux" title="Linux Notes" icon="command-line" >}}
+  {{< card link="/projects/weather-station" title="Weather Station" subtitle="Stazione meteo con sensori e dashboard" >}}
+  {{< card link="/projects/home-server" title="Home Server" subtitle="Server Linux self-hosted" >}}
+  {{< card link="/docs/linux" title="Linux Notes" subtitle="Comandi, configurazioni e troubleshooting" >}}
 {{< /cards >}}
 
 ---
 
-## Tecnologie
+## Obiettivo del progetto
 
-- Linux
-- Docker
-- Raspberry Pi
-- ESP32
-- Self-hosting
-- Networking
-- Retro hardware
-- Open Source
+Questo sito è una raccolta personale di:
+
+- esperimenti hardware
+- sistemi self-hosted
+- networking e Linux
+- automazione e IoT
+- documentazione tecnica
 
 ---
 
-> Built with Hugo + Hextra + GitHub Pages
+> Powered by Hugo + Hextra + GitHub Pages

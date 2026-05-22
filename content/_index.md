@@ -9,7 +9,7 @@ toc: false
   margin-bottom: 40px;
 ">
 
-<img src="/images/banner.jpg" style="
+<img src="/images/ChatGPT Image 21 dic 2025, 11_52_37.png.jpg" style="
   width: 100%;
   max-height: 400px;
   object-fit: cover;

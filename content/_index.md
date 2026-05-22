@@ -25,10 +25,10 @@ toc: false
   color: white;
   text-shadow: 0 2px 10px black;
 ">
-
-# TuxPi
-
-Self-hosting • Linux • IoT • Hardware
+Benvenuto su TuxPi!
+In questo blog si parla di tecnologia legata al mondo Linux, con un’attenzione particolare ai vantaggi che il sistema operativo del pinguino offre rispetto ad altri ambienti.
+Troverai articoli di approfondimento, guide pratiche e recensioni su distribuzioni, software open source, strumenti di sviluppo e soluzioni per ottimizzare l’esperienza d’uso.
+L’obiettivo è diffondere la cultura Linux e del software libero, aiutando utenti di ogni livello a scoprire un modo più libero, sicuro e personalizzabile di vivere la tecnologia.
 
 </div>
 </div>

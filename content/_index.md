@@ -13,7 +13,7 @@ L’obiettivo è diffondere la cultura Linux e del software libero, aiutando ute
 {{< cards >}}
   {{< card link="/blog/" title="Leggi gli Articoli" icon="newspaper" >}}
   {{< card link="/docs/proxmox/" title="Proxmox Homelab" icon="server" >}}
-  {{< card link="/docs/raspberry-pi/" title="Mondo Raspberry" icon="cpu" >}}
+  {{< card link="/docs/raspberry-pi/" title="Mondo Raspberry" icon="cpu-chip" >}}
 {{< /cards >}}
 
 ---

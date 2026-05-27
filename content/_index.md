@@ -1,6 +1,4 @@
----
-title: "TuxPi - Home"
----
+
 
 <!-- 1. SLIDER GIGANTE A TUTTO SCHERMO -->
 <div class="main-slider-container">

@@ -1,10 +1,6 @@
----
-title: "TuxPi - Home"
----
-
 <div class="tuxpi-hero-container">
     <div id="hero-slider" class="hero-slider">
-        <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://raw.githubusercontent.com/Tux-Pi/tuxpi.github.io/main/images/ChatGPT%20Image%2021%20dic%202025%2C%2011_52_37.png');"></div>
+        <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://raw.githubusercontent.com/Tux-Pi/tuxpi.github.io/blob/f4227cc3fb7dcdfd26e35bad676187cb07c1cd40/images/linux-opensource.png');"></div>
         <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070');"></div>
         <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2000');"></div>
     </div>
@@ -31,8 +27,9 @@ title: "TuxPi - Home"
 <div class="intro-box">
 
 # 🐧 Benvenuto su TuxPi
-In questo blog esploriamo la tecnologia **Linux**, con un focus particolare sul **Software Libero** e la virtualizzazione con **Proxmox**.  
-*Dalla gestione di piccoli Raspberry Pi alla configurazione di complessi Homelab.*
+In questo blog si parla di tecnologia legata al mondo Linux, con un’attenzione particolare ai vantaggi che il sistema operativo del pinguino offre rispetto ad altri ambienti.
+Troverai articoli di approfondimento, guide pratiche e recensioni su distribuzioni, software open source, strumenti di sviluppo e soluzioni per ottimizzare l’esperienza d’uso.
+L’obiettivo è diffondere la cultura Linux e del software libero, aiutando utenti di ogni livello a scoprire un modo più libero, sicuro e personalizzabile di vivere la tecnologia.
 
 </div>
 

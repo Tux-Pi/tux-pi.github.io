@@ -2,6 +2,7 @@
 title: "Chi Sono"
 ---
 
+
 <!-- HEADER DELLA PAGINA CHI SONO -->
 <div class="about-hero">
     <div class="about-hero-content">

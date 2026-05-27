@@ -35,8 +35,8 @@ In questo blog esploriamo la tecnologia **Linux**, con un focus particolare sul 
 
 {{< cards >}}
   {{< card link="/docs/proxmox" title="Proxmox Homelab" icon="server" subtitle="Guide sulla virtualizzazione e gestione server domestici." >}}
-  {{< card link="/docs/raspberry-pi" title="Mondo Raspberry" icon="cpu-chip" subtitle="Progetti creativi e soluzioni per la tua board preferita." >}}
-  {{< card link="/docs/linux" title="Cultura Linux" icon="command-line" subtitle="Recensioni distro, tutorial terminale e filosofia open source." >}}
+  {{< card link="/docs/raspberry-pi" title="Mondo Raspberry" icon="terminal" subtitle="Progetti creativi e soluzioni per la tua board preferita." >}}
+  {{< card link="/docs/linux" title="Cultura Linux" icon="book" subtitle="Recensioni distro, tutorial terminale e filosofia open source." >}}
 {{< /cards >}}
 
 <div id="articoli" class="section-title">

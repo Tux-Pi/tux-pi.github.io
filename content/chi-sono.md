@@ -12,34 +12,29 @@
 
 ## 🐧 Chi è TuxMaker?
 
-Ciao! Mi chiamo **TuxMaker**, l'ideatore e curatore di questo spazio. 
+Ciao! Sono **TuxMaker**, l'ideatore e curatore di questo spazio. 
 
-Il progetto **TuxPi** è nato originariamente su `tuxpi.ddns.net` come un piccolo esperimento domestico su un Raspberry Pi. Con il tempo, la passione per il mondo **Linux** e l'esigenza di avere il controllo totale sui miei dati mi hanno spinto a esplorare orizzonti più ampi: dalla virtualizzazione con **Proxmox** al **self-hosting** massivo tramite Docker.
-
-> "Non si tratta solo di installare software, ma di capire come riprendersi la proprietà della propria vita digitale."
+Il progetto **TuxPi** è nato originariamente su `tuxpi.ddns.net` come un piccolo esperimento domestico su un LXC di Proxmox. Con il tempo, il blog si è evoluto e per diventare più conosciuto ho deciso di trasferirlo su Github.
 
 ---
 
 ## 🛠️ Il mio "Garage" Digitale (Homelab)
 
-Molti mi chiedono cosa faccia girare TuxPi. Ecco una panoramica dell'hardware e delle tecnologie che utilizzo quotidianamente e di cui parlo nei miei articoli:
+Io nei miei articoli recensisco distro Linux, illustro soluzioni all'avanguardia con Docker e Proxmox ma anche molto altro.
+Nel mio homelab ho:
 
 <div class="tech-grid">
     <div class="tech-item">
         <strong>Server Principale</strong>
-        <p>Nodo Proxmox su hardware x86 per virtualizzazione pesante.</p>
-    </div>
-    <div class="tech-item">
-        <strong>Edge Computing</strong>
-        <p>Cluster di Raspberry Pi 4 e 5 per servizi h24 a basso consumo.</p>
+        <p>Nodo Proxmox VE su hardware x86 per virtualizzazione pesante.</p>
     </div>
     <div class="tech-item">
         <strong>Storage</strong>
-        <p>Soluzioni NAS custom per backup e gestione file multimediali.</p>
+        <p>Server samba su Proxmox.</p>
     </div>
     <div class="tech-item">
         <strong>Containerizzazione</strong>
-        <p>Oltre 30 servizi Docker gestiti tramite Portainer e traefik.</p>
+        <p>Oltre 10 servizi Docker gestiti tramite Portainer.</p>
     </div>
 </div>
 

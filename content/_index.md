@@ -143,6 +143,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <style>
+/* --- FIX PER LARGHEZZA E PULIZIA --- */
+/* Forza il contenitore principale di Hextra ad espandersi */
+.hx-mx-auto.hx-flex.hx-max-w-screen-xl {
+    max-width: 100% !important;
+}
+
+/* Nasconde elementi automatici fastidiosi (breadcrumbs, titoli automatici, link prev/next) */
+.hextra-breadcrumb, 
+.next-link, 
+.prev-link, 
+.mt-16, 
+footer .mx-auto,
+nav[aria-label="breadcrumb"],
+.hx-mt-2.hx-mb-6,
+h1.hx-text-4xl { 
+    display: none !important; 
+}
+
 /* --- HERO REFINEMENT --- */
 .tuxpi-hero-container { position: relative; width: 100vw; height: 95vh; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: -3.5rem; overflow: hidden; background: #000; }
 .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.1); transition: opacity 1.5s ease, transform 10s linear; }
@@ -165,112 +183,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
 /* --- CONTENT REFINEMENT --- */
-.home-content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 2rem 5rem 2rem; background: transparent; }
+.home-content-wrapper { 
+    max-width: 1600px; /* Larghezza aumentata */
+    width: 92%; 
+    margin: 0 auto; 
+    padding: 0 1rem 5rem 1rem; 
+    background: transparent; 
+}
 
 .intro-box { text-align: center; padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .intro-box h1 { font-size: 3rem !important; margin-bottom: 1.5rem !important; font-weight: 800 !important; }
 
-.section-container { padding: 6rem 0 2rem 0; }
+.section-container { padding: 6rem 0 2rem 0; width: 100%; }
 .section-header { text-align: center; margin-bottom: 3rem; }
 .section-tag { background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-.section-title h2 { font-size: 2.8rem !important; font-weight: 800 !important; margin-top: 10px !important; }
+.section-title { font-size: 2.8rem !important; font-weight: 800 !important; margin-top: 10px !important; color: white; }
 
-/* Adattamento Carte Hextra */
-.hx-card { transition: all 0.3s ease !important; border: 1px solid rgba(255,255,255,0.05) !important; background: rgba(255,255,255,0.02) !important; }
-.hx-card:hover { transform: translateY(-10px) !important; border-color: rgba(59, 130, 246, 0.4) !important; background: rgba(59, 130, 246, 0.05) !important; }
-
-/* NASCONDE ELEMENTI INUTILI */
-.hextra-breadcrumb, .next-link, .prev-link, .mt-16, footer .mx-auto { display: none !important; }
-
-/* --- TRASFORMAZIONE CARD TUXPI --- */
-
-/* 1. Il contenitore delle card */
-.hextra-cards {
-    gap: 2rem !important;
-    margin-top: 2rem !important;
-}
-
-/* 2. Stile della singola Card */
-.hx-card {
-    background: rgba(255, 255, 255, 0.03) !important; /* Effetto vetro scuro */
-    backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 20px !important;
-    padding: 1.5rem !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    position: relative;
-    overflow: hidden;
-}
-
-/* 3. Effetto Hover (Elevazione e Luce) */
-.hx-card:hover {
-    transform: translateY(-12px) scale(1.02) !important;
-    background: rgba(59, 130, 246, 0.08) !important; /* Bagliore blu soft */
-    border-color: rgba(59, 130, 246, 0.5) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
-                0 0 20px rgba(59, 130, 246, 0.2) !important;
-}
-
-/* 4. Animazione Icona */
-.hx-card svg {
-    color: #3b82f6 !important; /* Colore blu TuxPi */
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    transition: transform 0.5s ease !important;
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
-}
-
-.hx-card:hover svg {
-    transform: rotate(-10deg) scale(1.2) !important;
-    color: #60a5fa !important;
-}
-
-/* 5. Titolo e Sottotitolo */
-.hx-card h3 {
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    margin-top: 1rem !important;
-    color: white !important;
-    letter-spacing: -0.5px;
-}
-
-.hx-card p {
-    color: #94a3b8 !important;
-    line-height: 1.5 !important;
-    margin-top: 0.5rem !important;
-    font-size: 0.95rem !important;
-}
-
-/* 6. Decorazione extra: linea luminosa in alto al passaggio del mouse */
-.hx-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-    transform: translateX(-100%);
-    transition: transform 0.6s;
-}
-
-.hx-card:hover::before {
-    transform: translateX(100%);
-}
-
-/* GRIGLIA A 4 COLONNE */
+/* GRIGLIA A 4 COLONNE PIÙ LARGA */
 .tuxpi-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
     margin-top: 40px;
-    padding: 0 10px;
 }
 
-/* LA CARD INDIVIDUALE */
 .tux-card {
     position: relative;
-    height: 320px;
+    height: 350px; /* Leggermente più alte */
     border-radius: 24px;
     overflow: hidden;
     display: flex;
@@ -280,72 +219,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* L'IMMAGINE DI SFONDO DELLA CARD */
 .card-bg {
     position: absolute;
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.4) grayscale(0.2); /* Scura di base */
+    filter: brightness(0.4) grayscale(0.2);
     transition: all 0.6s ease;
     z-index: 1;
 }
 
-/* CONTENUTO SOPRA L'IMMAGINE */
 .card-content {
     position: relative;
     z-index: 2;
     padding: 30px;
     width: 100%;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-    transition: all 0.4s ease;
 }
 
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    transform: translateY(10px);
-    transition: all 0.4s ease;
-}
-
-.tux-card h3 {
-    color: #fff !important;
-    font-size: 1.6rem !important;
-    font-weight: 800 !important;
-    margin: 0 0 10px 0 !important;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-.tux-card p {
-    color: #cbd5e1 !important;
-    font-size: 0.95rem !important;
-    line-height: 1.5 !important;
-    opacity: 0.8;
-    margin: 0 !important;
-}
-
-/* EFFETTI HOVER (QUANDO PASSI IL MOUSE) */
 .tux-card:hover {
     transform: translateY(-15px);
     border-color: #3b82f6;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 .tux-card:hover .card-bg {
-    filter: brightness(0.6) grayscale(0); /* Si schiarisce e prende colore */
-    transform: scale(1.1); /* Effetto zoom */
-}
-
-.tux-card:hover .card-icon {
-    transform: translateY(0) scale(1.2);
-}
-
-.tux-card:hover .card-content {
-    background: linear-gradient(to top, rgba(59, 130, 246, 0.3) 0%, transparent 100%);
+    filter: brightness(0.7) grayscale(0);
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
     .tuxpi-cards-grid { grid-template-columns: 1fr; }
     .tux-card { height: 280px; }
+    .home-content-wrapper { width: 95%; padding: 0 1rem; }
 }
 </style>

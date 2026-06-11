@@ -154,6 +154,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <style>
+  /* Allarga il contenitore del testo principale (Hextra lo blocca di default) */
+:root {
+    --hextra-max-content-width: 100% !important;
+}
+
+/* Rimuove i margini automatici che creano lo spazio bianco a lato */
+.hx-mx-auto.hx-flex.hx-max-w-screen-xl {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Nasconde scritte residue come breadcrumbs o titoli automatici */
+.hextra-breadcrumb, 
+nav[aria-label="breadcrumb"], 
+.hx-mt-2.hx-mb-6, 
+h1.hx-text-4xl { 
+    display: none !important; 
+}
+
+/* --- IL RESTO DEL TUO CODICE (Hero e Card) --- */
+.home-content-wrapper { 
+    max-width: 1400px; /* Qui decidi quanto vuoi larga la sezione centrale */
+    margin: 0 auto; 
+    padding: 0 2rem 5rem 2rem; 
+}
 /* 1. RIMUOVI "IN THIS PAGE" E PULIZIA TESTATA */
 /* Nasconde la colonna di destra (TOC) */
 aside.hx-hidden.xl\:hx-block.hx-sticky { 

@@ -46,7 +46,6 @@ L’obiettivo è diffondere la cultura Linux e del software libero, aiutando ute
     <div class="section-header">
         <span class="section-tag">Esplora l'ecosistema</span>
         <h2 class="section-title">Domina il tuo Hardware</h2>
-    </div>
 
 <div class="tuxpi-cards-grid">
         <!-- CARD 1: PROXMOX -->
@@ -87,6 +86,7 @@ L’obiettivo è diffondere la cultura Linux e del software libero, aiutando ute
             </div>
         </a>
     </div>
+</div>
 </div>
 
 </div>

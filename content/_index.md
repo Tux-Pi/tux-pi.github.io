@@ -1,3 +1,9 @@
+---
+title: "Home"
+toc: false
+sidebar: false
+---
+
 <div class="tuxpi-hero-container">
     <div id="hero-slider" class="hero-slider">
         <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('https://raw.githubusercontent.com/Tux-Pi/tuxpi.github.io/main/images/linux-opensource.png');"></div>
@@ -143,25 +149,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <style>
-/* --- FIX PER LARGHEZZA E PULIZIA --- */
-/* Forza il contenitore principale di Hextra ad espandersi */
-.hx-mx-auto.hx-flex.hx-max-w-screen-xl {
-    max-width: 100% !important;
+/* 1. RIMUOVI "IN THIS PAGE" E PULIZIA TESTATA */
+/* Nasconde la colonna di destra (TOC) */
+aside.hx-hidden.xl\:hx-block.hx-sticky { 
+    display: none !important; 
 }
 
-/* Nasconde elementi automatici fastidiosi (breadcrumbs, titoli automatici, link prev/next) */
-.hextra-breadcrumb, 
-.next-link, 
-.prev-link, 
-.mt-16, 
-footer .mx-auto,
-nav[aria-label="breadcrumb"],
-.hx-mt-2.hx-mb-6,
+/* Nasconde breadcrumbs e titoli generati dal tema in alto */
+nav[aria-label="breadcrumb"], 
+.hx-mt-2.hx-mb-6, 
 h1.hx-text-4xl { 
     display: none !important; 
 }
 
-/* --- HERO REFINEMENT --- */
+/* 2. ALLARGAMENTO DEL CONTENUTO */
+/* Forza il contenitore principale di Hextra ad essere molto più largo (o full width) */
+.hx-mx-auto.hx-flex.hx-max-w-screen-xl {
+    max-width: 1400px !important; /* Regola questo valore per la larghezza desiderata */
+}
+
+/* Rende l'area del contenuto principale larga al 100% (senza lo spazio per la sidebar) */
+main.hx-w-full {
+    max-width: 100% !important;
+}
+
+.home-content-wrapper { 
+    max-width: 100%; 
+    margin: 0 auto; 
+    padding: 0 2rem 5rem 2rem; 
+}
+
+/* --- HERO REFINEMENT (Invariato) --- */
 .tuxpi-hero-container { position: relative; width: 100vw; height: 95vh; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: -3.5rem; overflow: hidden; background: #000; }
 .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.1); transition: opacity 1.5s ease, transform 10s linear; }
 .hero-slide.active { opacity: 1; transform: scale(1.02); z-index: 2; }
@@ -182,34 +200,26 @@ h1.hx-text-4xl {
 .btn-outline { border: 1px solid rgba(255,255,255,0.4); color: white; backdrop-filter: blur(5px); }
 .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
-/* --- CONTENT REFINEMENT --- */
-.home-content-wrapper { 
-    max-width: 1600px; /* Larghezza aumentata */
-    width: 92%; 
-    margin: 0 auto; 
-    padding: 0 1rem 5rem 1rem; 
-    background: transparent; 
-}
-
+/* --- SEZIONI --- */
 .intro-box { text-align: center; padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .intro-box h1 { font-size: 3rem !important; margin-bottom: 1.5rem !important; font-weight: 800 !important; }
 
-.section-container { padding: 6rem 0 2rem 0; width: 100%; }
+.section-container { padding: 6rem 0 2rem 0; }
 .section-header { text-align: center; margin-bottom: 3rem; }
 .section-tag { background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
-.section-title { font-size: 2.8rem !important; font-weight: 800 !important; margin-top: 10px !important; color: white; }
+.section-title { font-size: 2.8rem !important; font-weight: 800 !important; margin-top: 10px !important; }
 
-/* GRIGLIA A 4 COLONNE PIÙ LARGA */
+/* --- LE TUE CARD ORIGINALI (Ripristinate) --- */
 .tuxpi-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     margin-top: 40px;
 }
 
 .tux-card {
     position: relative;
-    height: 350px; /* Leggermente più alte */
+    height: 320px;
     border-radius: 24px;
     overflow: hidden;
     display: flex;
@@ -235,21 +245,20 @@ h1.hx-text-4xl {
     padding: 30px;
     width: 100%;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    transition: all 0.4s ease;
 }
 
-.tux-card:hover {
-    transform: translateY(-15px);
-    border-color: #3b82f6;
-}
+.card-icon { font-size: 2.5rem; margin-bottom: 15px; transform: translateY(10px); transition: all 0.4s ease; }
 
-.tux-card:hover .card-bg {
-    filter: brightness(0.7) grayscale(0);
-    transform: scale(1.1);
-}
+.tux-card h3 { color: #fff !important; font-size: 1.6rem !important; font-weight: 800 !important; margin: 0 0 10px 0 !important; }
+.tux-card p { color: #cbd5e1 !important; font-size: 0.95rem !important; line-height: 1.5 !important; opacity: 0.8; margin: 0 !important; }
+
+.tux-card:hover { transform: translateY(-15px); border-color: #3b82f6; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.3); }
+.tux-card:hover .card-bg { filter: brightness(0.6) grayscale(0); transform: scale(1.1); }
+.tux-card:hover .card-icon { transform: translateY(0) scale(1.2); }
 
 @media (max-width: 768px) {
     .tuxpi-cards-grid { grid-template-columns: 1fr; }
     .tux-card { height: 280px; }
-    .home-content-wrapper { width: 95%; padding: 0 1rem; }
 }
 </style>

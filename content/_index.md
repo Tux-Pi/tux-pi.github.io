@@ -251,7 +251,7 @@ main.hx-w-full {
 .intro-box h1 { font-size: 3rem !important; margin-bottom: 1.5rem !important; font-weight: 800 !important; }
 
 .section-container { padding: 6rem 0 2rem 0; }
-.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header { text-align: center; margin-bottom: none !important; }
 .section-tag { background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
 .section-title { font-size: 2.8rem !important; font-weight: 800 !important; margin-top: 10px !important; }
 

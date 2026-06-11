@@ -152,7 +152,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <style>
-    /* Rimuove le linee di separazione automatiche del tema tra le sezioni */
+/* Rimuove le linee di separazione automatiche del tema tra le sezioni */
 hr, 
 .hx-border-t, 
 .hx-border-b,

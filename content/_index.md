@@ -243,7 +243,11 @@ main.hx-w-full {
 .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
 /* --- SEZIONI --- */
-.intro-box { text-align: center; padding: 5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.intro-box { 
+    text-align: center; 
+    padding: 5rem 0; 
+    border-bottom: none !important; /* Cambiato da 1px a none */
+}
 .intro-box h1 { font-size: 3rem !important; margin-bottom: 1.5rem !important; font-weight: 800 !important; }
 
 .section-container { padding: 6rem 0 2rem 0; }

@@ -3,8 +3,6 @@ title: "TuxPi"
 # Disabilita la colonna di destra "In this page"
 toc: false
 # Disabilita la colonna di sinistra correttamente (non usare sidebar: false)
-sidebar:
-  hide: true
 # Imposta la larghezza della pagina su "wide" (larga) o "full" (piena)
 width: full
 ---

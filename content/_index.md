@@ -6,7 +6,7 @@ toc: false
 sidebar:
   hide: true
 # Imposta la larghezza della pagina su "wide" (larga) o "full" (piena)
-width: wide
+width: full
 ---
 
 <div class="tuxpi-hero-container">

@@ -152,6 +152,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
 
 <style>
+    /* Rimuove le linee di separazione automatiche del tema tra le sezioni */
+hr, 
+.hx-border-t, 
+.hx-border-b,
+.hx-border-neutral-200,
+.dark .hx-border-neutral-800 {
+    display: none !important;
+    border: none !important;
+}
+
+/* Rimuove eventuali bordi ai contenitori principali */
+.section-container {
+    border: none !important;
+}
   /* Allarga il contenitore del testo principale (Hextra lo blocca di default) */
 :root {
     --hextra-max-content-width: 100% !important;

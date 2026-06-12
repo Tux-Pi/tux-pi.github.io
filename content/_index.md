@@ -30,11 +30,10 @@ width: full
 </div>
 
 <div class="home-content-wrapper">
-
     <div class="intro-box">
         <h2 class="intro-title">🐧 Benvenuto su TuxPi</h2>
         <p class="intro-text">
-            In questo blog si parla di tecnologia legata al mondo <strong>Linux</strong>, con un’attenzione particolare ai vantaggi che il sistema operativo del pinguino offre rispetto ad altri ambienti. Troverai articoli di approfondimento, guide pratiche e recensioni su distribuzioni, software open source e soluzioni per ottimizzare l’esperienza d’uso.
+            In questo blog si parla di tecnologia legata al mondo <strong>Linux</strong>, con un’attenzione particolare ai vantaggi dell’open source. Guide pratiche, Proxmox, Raspberry e tutto ciò che serve per dominare il tuo hardware.
         </p>
     </div>
 
@@ -43,42 +42,22 @@ width: full
             <span class="section-tag">Esplora l'ecosistema</span>
             <h2 class="section-title">Domina il tuo Hardware</h2>
         </div>
-
         <div class="tuxpi-cards-grid">
             <a href="/docs/proxmox" class="tux-card">
                 <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800');"></div>
-                <div class="card-content">
-                    <div class="card-icon">🖥️</div>
-                    <h3>Proxmox Lab</h3>
-                    <p>Virtualizzazione estrema. Gestisci i tuoi nodi e crea un datacenter professionale.</p>
-                </div>
+                <div class="card-content"><h3>Proxmox Lab</h3><p>Virtualizzazione estrema e nodi domestici.</p></div>
             </a>
-
             <a href="/docs/raspberry-pi" class="tux-card">
                 <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1629739945244-c7821487b257?q=80&w=800');"></div>
-                <div class="card-content">
-                    <div class="card-icon">🥧</div>
-                    <h3>Mondo Raspberry</h3>
-                    <p>Dallo sviluppo IoT ai server a basso consumo. Progetti pratici per la single-board.</p>
-                </div>
+                <div class="card-content"><h3>Mondo Raspberry</h3><p>IoT e server a basso consumo.</p></div>
             </a>
-
             <a href="/docs/self-hosting" class="tux-card">
                 <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1605745341112-85968b193ef5?q=80&w=800');"></div>
-                <div class="card-content">
-                    <div class="card-icon">🐳</div>
-                    <h3>Self-Hosting</h3>
-                    <p>Docker e servizi Cloud privati. Prendi il controllo dei tuoi dati senza intermediari.</p>
-                </div>
+                <div class="card-content"><h3>Self-Hosting</h3><p>Docker e servizi cloud privati.</p></div>
             </a>
-
             <a href="/docs/linux" class="tux-card">
                 <div class="card-bg" style="background-image: url('https://raw.githubusercontent.com/Tux-Pi/tuxpi.github.io/main/images/linux-opensource.png');"></div>
-                <div class="card-content">
-                    <div class="card-icon">🐧</div>
-                    <h3>Cultura Linux</h3>
-                    <p>Filosofia Open Source, guide al terminale e recensioni delle migliori distribuzioni.</p>
-                </div>
+                <div class="card-content"><h3>Cultura Linux</h3><p>Guide al terminale e filosofia Open Source.</p></div>
             </a>
         </div>
     </div>
@@ -88,11 +67,8 @@ width: full
             <span class="section-tag">News</span>
             <h2 class="section-title">Ultimi Articoli</h2>
         </div>
-        <div class="latest-articles-wrapper">
-            {{< latest-articles >}}
-        </div>
+        {{< latest-articles >}}
     </div>
-
 </div>
 
 <script>
@@ -100,117 +76,111 @@ const phrases = ["Linux & Open Source", "Proxmox Homelab", "Raspberry Pi & IoT"]
 const slides = document.querySelectorAll('.hero-slide');
 const textElement = document.getElementById('typing-text');
 let currentIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 100;
-
-function updateSlides(index) {
-    slides.forEach((slide, i) => { slide.classList.toggle('active', i === index); });
-}
-
+function updateSlides(index) { slides.forEach((slide, i) => { slide.classList.toggle('active', i === index); }); }
 function typeEffect() {
     const currentPhrase = phrases[currentIndex];
-    if (isDeleting) {
-        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--; typeSpeed = 40; 
-    } else {
-        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++; typeSpeed = 120;
-    }
-    if (!isDeleting && charIndex === currentPhrase.length) {
-        isDeleting = true; typeSpeed = 3000; 
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        currentIndex = (currentIndex + 1) % phrases.length;
-        updateSlides(currentIndex);
-        typeSpeed = 500; 
-    }
+    if (isDeleting) { textElement.textContent = currentPhrase.substring(0, charIndex - 1); charIndex--; typeSpeed = 40; 
+    } else { textElement.textContent = currentPhrase.substring(0, charIndex + 1); charIndex++; typeSpeed = 120; }
+    if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; typeSpeed = 2000; 
+    } else if (isDeleting && charIndex === 0) { isDeleting = false; currentIndex = (currentIndex + 1) % phrases.length; updateSlides(currentIndex); typeSpeed = 500; }
     setTimeout(typeEffect, typeSpeed);
 }
 document.addEventListener('DOMContentLoaded', typeEffect);
 </script>
 
 <style>
-/* --- 1. AZZERAMENTO BARRE SCORRIMENTO --- */
-html, body { scrollbar-width: none; -ms-overflow-style: none; overflow-x: hidden; }
-body::-webkit-scrollbar { display: none; }
+/* --- 1. BARRE DI SCORRIMENTO INTELLIGENTI --- */
+/* Nasconde la barra di default */
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+}
+html::-webkit-scrollbar { width: 8px; display: none; } /* Chrome/Safari */
 
-/* --- 2. RIMOZIONE SPAZIO BIANCO LATERALE (FORCE FULL WIDTH) --- */
-/* Questo rompe i limiti del tema Hextra e allarga tutto */
+/* Mostra la barra quando il mouse si muove sulla pagina */
+html:hover { scrollbar-width: thin; }
+html:hover::-webkit-scrollbar { display: block; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); }
+::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+
+/* --- 2. ELIMINAZIONE SPAZIO SINISTRO E LARGO --- */
+/* Forza il reset dei margini di Hextra */
 .hx-mx-auto.hx-flex.hx-max-w-screen-xl {
     max-width: 100% !important;
     width: 100% !important;
-    padding: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
+    display: block !important; /* Rimuove il comportamento flex che spinge a destra */
 }
 
+/* Allarga il contenitore principale */
 main.hx-w-full {
     max-width: 100% !important;
     width: 100% !important;
+    padding: 0 !important;
 }
 
-/* Nasconde sidebar e TOC che creano vuoti laterali */
-aside, .hextra-toc, .hx-hidden.xl\:hx-block { display: none !important; }
-
-/* --- 3. PULIZIA TEMA --- */
-.hextra-breadcrumb, nav[aria-label="breadcrumb"], .hx-mt-2.hx-mb-6, h1.hx-text-4xl, hr, [class*="border-neutral"] { 
-    display: none !important; 
+/* Rimuove i padding interni della pagina */
+.hx-w-full.hx-break-words {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
-/* --- 4. HERO SECTION (FULL WIDTH) --- */
+/* Nasconde elementi inutili che creano spazi bianchi */
+aside, .hextra-toc, .hextra-breadcrumb, h1.hx-text-4xl { display: none !important; }
+
+/* --- 3. HERO (A TUTTA LARGHEZZA) --- */
 .tuxpi-hero-container { 
-    position: relative; width: 100vw; height: 85vh; 
-    margin-top: -3.5rem; overflow: hidden; background: #000; 
+    position: relative; width: 100%; height: 80vh; 
+    overflow: hidden; background: #000; margin-top: -64px; /* Compensa navbar */
 }
-.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.1); transition: opacity 1.5s ease, transform 10s linear; }
-.hero-slide.active { opacity: 1; transform: scale(1); z-index: 2; }
-.hero-overlay { position: relative; z-index: 10; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); }
-.hero-bottom-gradient { position: absolute; bottom: 0; width: 100%; height: 200px; background: linear-gradient(to top, #111 0%, transparent 100%); z-index: 11; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease; }
+.hero-slide.active { opacity: 1; z-index: 1; }
+.hero-overlay { position: relative; z-index: 10; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); }
 
-.hero-title { font-size: clamp(3.5rem, 15vw, 9rem) !important; font-weight: 900 !important; color: white !important; letter-spacing: -5px; }
+.hero-title { font-size: clamp(3rem, 12vw, 8rem) !important; font-weight: 900 !important; color: white !important; margin: 0 !important; letter-spacing: -4px; }
 .hero-title span { color: #3b82f6; }
 
-.typing-container { font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 3vw, 1.8rem); color: #cbd5e1; text-align: center; }
-.cursor { animation: blink 0.8s infinite; color: #3b82f6; }
-@keyframes blink { 50% { opacity: 0; } }
-
-.hero-buttons { margin-top: 2rem; display: flex; gap: 15px; justify-content: center; }
-.btn { padding: 12px 25px; border-radius: 10px; font-weight: bold; text-decoration: none !important; transition: 0.3s; font-size: 0.8rem; }
-.btn-blue { background: #3b82f6; color: white !important; }
-.btn-outline { border: 1px solid white; color: white !important; }
-
-/* --- 5. CONTENUTO CENTRALE (AMPIO) --- */
+/* --- 4. CONTENUTO (LARGO MA CENTRATO) --- */
 .home-content-wrapper { 
-    max-width: 1400px; /* Qui puoi aumentare a 1600px se lo vuoi ancora più largo */
-    width: 90%; 
-    margin: 0 auto; 
+    max-width: 1600px; /* Molto largo */
+    width: 95%; 
+    margin: 0 auto !important; /* Centra il blocco del contenuto nel nuovo spazio totale */
     padding: 4rem 0;
 }
 
-.intro-box { text-align: center; margin-bottom: 4rem; }
-.intro-title { font-size: 2.5rem !important; color: white !important; margin-bottom: 1rem !important; }
-.intro-text { font-size: 1.2rem; color: #94a3b8; line-height: 1.7; }
-
-/* --- 6. GRID E CARD --- */
 .tuxpi-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 3rem;
 }
+
 .tux-card {
-    position: relative; height: 320px; border-radius: 20px; overflow: hidden;
+    position: relative; height: 350px; border-radius: 24px; overflow: hidden;
     display: flex; align-items: flex-end; text-decoration: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    transition: 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.1) !important; transition: 0.4s;
 }
 .card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.4); transition: 0.5s; }
-.card-content { position: relative; z-index: 2; padding: 25px; width: 100%; background: linear-gradient(to top, black, transparent); }
-.card-icon { font-size: 2rem; margin-bottom: 10px; }
-.tux-card h3 { color: white !important; font-size: 1.4rem !important; margin-bottom: 5px !important; }
-.tux-card p { color: #94a3b8 !important; font-size: 0.9rem !important; }
+.card-content { position: relative; z-index: 2; padding: 30px; width: 100%; background: linear-gradient(to top, #000, transparent); }
+.tux-card h3 { color: white !important; font-size: 1.5rem !important; margin: 0 !important; }
+.tux-card p { color: #94a3b8 !important; margin: 5px 0 0 0 !important; font-size: 0.95rem; }
 
 .tux-card:hover { transform: translateY(-10px); border-color: #3b82f6 !important; }
 .tux-card:hover .card-bg { filter: brightness(0.6) scale(1.05); }
 
+.intro-box { text-align: center; padding: 4rem 0; }
+.section-header { text-align: center; margin-bottom: 2rem; }
+.section-tag { color: #3b82f6; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; }
+.section-title { font-size: 2.5rem !important; font-weight: 800 !important; color: white; }
+
+.btn { padding: 12px 25px; border-radius: 10px; font-weight: bold; text-decoration: none !important; margin: 0 10px; transition: 0.3s; }
+.btn-blue { background: #3b82f6; color: white !important; }
+.btn-outline { border: 1px solid white; color: white !important; }
+
 @media (max-width: 768px) {
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .btn { width: 80%; text-align: center; }
+    .hero-title { font-size: 4rem !important; }
+    .home-content-wrapper { width: 92%; }
 }
 </style>

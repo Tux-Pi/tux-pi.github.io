@@ -1,7 +1,6 @@
 ---
 title: "TuxPi"
 toc: false
-width: full
 ---
 
 <div class="tuxpi-hero-container">

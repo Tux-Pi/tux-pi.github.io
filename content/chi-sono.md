@@ -1,8 +1,6 @@
 ---
 title: "Chi Sono"
 toc: false
-sidebar:
-  hide: true
 # width: full in Hextra spesso non basta, lo forziamo noi sotto
 ---
 <style>

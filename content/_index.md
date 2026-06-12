@@ -1,8 +1,6 @@
 ---
 title: "TuxPi"
 toc: false
-sidebar:
-  hide: true
 width: full
 ---
 

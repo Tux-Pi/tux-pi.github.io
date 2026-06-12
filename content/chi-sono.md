@@ -1,4 +1,6 @@
 ---
+title: Chi Sono
+  hide: true
 toc: false
 sidebar:
   hide: true

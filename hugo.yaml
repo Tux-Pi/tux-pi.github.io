@@ -1,59 +1,68 @@
-# Sostituisci 'tuo-utente' con il tuo nome account GitHub
-baseURL: "https://tuo-utente.github.io/tuxpi-site/"
-title: "TuxPi"
-languageCode: "it-it"
+name: Deploy Hugo site to Pages
 
-# Importa Hextra come modulo
-module:
-  imports:
-    - path: github.com/imfing/hextra
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
 
-markup:
-  # Permette l'HTML personalizzato (necessario per la Home Page gigante)
-  goldmark:
-    renderer:
-      unsafe: true
-  # Abilita l'evidenziazione del codice (ottimo per le guide Linux)
-  highlight:
-    noClasses: false
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-# Configurazione del Menu Superiore (Navbar)
-menu:
-  main:
-    - name: "Home"
-      url: "/"
-      weight: 1
-    - name: "Articoli"
-      url: "/blog"
-      weight: 2
-    - name: "Sezioni"
-      url: "/docs"
-      weight: 3
-    - name: "Chi Sono"
-      url: "/chi-sono"
-      weight: 4
-    - name: "Cerca"
-      weight: 10
-      params:
-        type: search
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-params:
-  navbar:
-    displayTitle: true
-    displayLogo: false # Se carichi un logo in static/images/logo.svg metti true
-    title: "TuxPi"
-    width: "max-w-[1400px]" # Allarga leggermente la barra di navigazione
+# Forza l'uso di Node.js 24 per evitare i warning di deprecazione
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-  footer:
-    displayCopyright: true
-    displayPoweredBy: false
-    text: "© 2026 Progetto TuxPi - Da tuxpi.ddns.net a GitHub"
-    width: "max-w-[1400px]"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
 
-  # Impostazioni tema
-  theme:
-    default: "dark" # TuxPi sta benissimo in Dark Mode di default
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
 
-  # Link di modifica (opzionale, punta al tuo repo)
-  editURL:
-    enable: false # Disabilitalo se non vuoi il tasto "Edit this page"
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5 # Aggiornato alla v5
+
+      - name: Build with Hugo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps: pages.outputs.base_url }}/"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

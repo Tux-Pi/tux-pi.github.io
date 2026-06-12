@@ -185,7 +185,7 @@ body:hover::-webkit-scrollbar-thumb:hover {
 <!-- CORPO DELLA PAGINA -->
 <div class="content-section">
     
-    <!-- MESSAGGIO DI BENVENUTO OTTIMIZZATO -->
+<!-- MESSAGGIO DI BENVENUTO OTTIMIZZATO -->
   <div class="intro-box">
         <h2>🐧 Benvenuto su TuxPi</h2>
         <p>
@@ -194,7 +194,7 @@ body:hover::-webkit-scrollbar-thumb:hover {
         </p>
     </div>
 
-    <!-- GRIGLIA SEZIONI -->
+<!-- GRIGLIA SEZIONI -->
   <div id="sezioni" style="margin-bottom: 6rem;">
         <span class="section-label">Esplora l'ecosistema</span>
         <h2 style="font-size: 2.2rem !important; color: white; margin-bottom: 2rem;">Domina il tuo Hardware</h2>
@@ -219,7 +219,7 @@ body:hover::-webkit-scrollbar-thumb:hover {
         </div>
   </div>
 
-    <!-- ULTIMI ARTICOLI -->
+<!-- ULTIMI ARTICOLI -->
   <div id="articoli">
         <span class="section-label">Aggiornamenti</span>
         <h2 style="font-size: 2.2rem !important; color: white; margin-bottom: 2rem;">Ultimi Articoli</h2>

@@ -1,5 +1,4 @@
 ---
-title: "Chi Sono"
 toc: false
 sidebar:
   hide: true

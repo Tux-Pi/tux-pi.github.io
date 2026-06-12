@@ -1,47 +1,69 @@
-name: Deploy Hugo site to Pages
+# Sostituito con l'URL reale del tuo sito
+baseURL: "https://tux-pi.github.io/"
+title: "TuxPi"
+languageCode: "it-it"
 
-on:
-  push:
-    branches: ["main"]
+# Importa Hextra come modulo
+module:
+  imports:
+    - path: github.com/imfing/hextra
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Necessario per far funzionare lo slider HTML nella home
+  highlight:
+    noClasses: false
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive # Fondamentale se il tema è un sottomodulo
-          fetch-depth: 0
+# Configurazione del Menu Superiore
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Articoli"
+      url: "/blog"
+      weight: 2
+    - name: "Sezioni"
+      url: "/docs"
+      weight: 3
+    - name: "Chi Sono"
+      url: "/chi-sono"
+      weight: 4
+    - name: "Cerca"
+      weight: 10
+      params:
+        type: search
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: 'latest'
-          extended: true
+params:
+  # --- IMPOSTAZIONI DI LAYOUT GLOBALI ---
+  # Queste impostazioni rimuovono lo spazio bianco e allargano tutto il sito
+  navbar:
+    displayTitle: true
+    displayLogo: false
+    title: "TUXPI"
+    width: "max-w-[100%]" # Allarga la barra di navigazione al 100%
 
-      - name: Build
-        run: hugo --minify --baseURL "https://tux-pi.github.io/"
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+    text: "© 2026 Progetto TuxPi"
+    width: "max-w-[1400px]"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 # Versione v3 specifica per Pages
-        with:
-          path: ./public
+  # Impostazioni tema
+  theme:
+    default: "dark"
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  # Configurazione Sidebar e TOC (Table of Contents)
+  # Disabilitiamo globalmente la colonna destra "In this page" per la home
+  toc:
+    enable: false 
+  
+  sidebar:
+    defaultMenuCollapsed: true
+    # Questo aiuta a nascondere la sidebar dove non serve
+    display: false 
+
+  # Link di modifica disabilitato
+  editURL:
+    enable: false

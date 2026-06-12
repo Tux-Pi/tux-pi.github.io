@@ -32,10 +32,9 @@ width: full
 <div class="home-content-wrapper">
 
     <div class="intro-box">
-        <h1 class="intro-title">🐧 Benvenuto su TuxPi</h1>
+        <h2 class="intro-title">🐧 Benvenuto su TuxPi</h2>
         <p class="intro-text">
-            In questo blog si parla di tecnologia legata al mondo <strong>Linux</strong>, con un’attenzione particolare ai vantaggi che il sistema operativo del pinguino offre rispetto ad altri ambienti.
-            Troverai articoli di approfondimento, guide pratiche e recensioni su distribuzioni, software open source e soluzioni per ottimizzare l’esperienza d’uso.
+            In questo blog si parla di tecnologia legata al mondo <strong>Linux</strong>, con un’attenzione particolare ai vantaggi che il sistema operativo del pinguino offre rispetto ad altri ambienti. Troverai articoli di approfondimento, guide pratiche e recensioni su distribuzioni, software open source e soluzioni per ottimizzare l’esperienza d’uso.
         </p>
     </div>
 
@@ -97,16 +96,13 @@ width: full
 </div>
 
 <script>
-// Slider Logic
 const phrases = ["Linux & Open Source", "Proxmox Homelab", "Raspberry Pi & IoT"];
 const slides = document.querySelectorAll('.hero-slide');
 const textElement = document.getElementById('typing-text');
 let currentIndex = 0, charIndex = 0, isDeleting = false, typeSpeed = 100;
 
 function updateSlides(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
+    slides.forEach((slide, i) => { slide.classList.toggle('active', i === index); });
 }
 
 function typeEffect() {
@@ -129,125 +125,92 @@ function typeEffect() {
     setTimeout(typeEffect, typeSpeed);
 }
 document.addEventListener('DOMContentLoaded', typeEffect);
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-});
 </script>
 
 <style>
-/* --- AZZERAMENTO BARRE DI SCORRIMENTO --- */
-html, body {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-}
-body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
+/* --- 1. AZZERAMENTO BARRE SCORRIMENTO --- */
+html, body { scrollbar-width: none; -ms-overflow-style: none; overflow-x: hidden; }
+body::-webkit-scrollbar { display: none; }
 
-/* --- RESET TEMA HEXTRA & FULL WIDTH --- */
-:root { --hextra-max-content-width: 100% !important; }
-.hx-mx-auto.hx-flex.hx-max-w-screen-xl { max-width: 100% !important; width: 100% !important; }
-main.hx-w-full { max-width: 100% !important; }
-aside, .hextra-breadcrumb, nav[aria-label="breadcrumb"], .hx-mt-2.hx-mb-6, h1.hx-text-4xl { display: none !important; }
-hr, [class*="border-neutral"], .hx-border-t, .hx-border-b { border: none !important; display: none !important; }
-
-/* --- LAYOUT PRINCIPALE --- */
-.home-content-wrapper { 
-    max-width: 1400px; 
-    width: 92%; 
-    margin: 0 auto; 
-    padding-bottom: 5rem;
+/* --- 2. RIMOZIONE SPAZIO BIANCO LATERALE (FORCE FULL WIDTH) --- */
+/* Questo rompe i limiti del tema Hextra e allarga tutto */
+.hx-mx-auto.hx-flex.hx-max-w-screen-xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-/* --- HERO SECTION --- */
+main.hx-w-full {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Nasconde sidebar e TOC che creano vuoti laterali */
+aside, .hextra-toc, .hx-hidden.xl\:hx-block { display: none !important; }
+
+/* --- 3. PULIZIA TEMA --- */
+.hextra-breadcrumb, nav[aria-label="breadcrumb"], .hx-mt-2.hx-mb-6, h1.hx-text-4xl, hr, [class*="border-neutral"] { 
+    display: none !important; 
+}
+
+/* --- 4. HERO SECTION (FULL WIDTH) --- */
 .tuxpi-hero-container { 
-    position: relative; width: 100vw; height: 90vh; 
-    left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; 
+    position: relative; width: 100vw; height: 85vh; 
     margin-top: -3.5rem; overflow: hidden; background: #000; 
 }
-.hero-slide { 
-    position: absolute; inset: 0; background-size: cover; background-position: center; 
-    opacity: 0; transform: scale(1.1); transition: opacity 1.5s ease, transform 10s linear; 
-}
-.hero-slide.active { opacity: 1; transform: scale(1.02); z-index: 2; }
-.hero-overlay { 
-    position: relative; z-index: 10; height: 100%; 
-    display: flex; align-items: center; justify-content: center; 
-    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.6) 90%); 
-}
-.hero-bottom-gradient { 
-    position: absolute; bottom: 0; width: 100%; height: 250px; 
-    background: linear-gradient(to top, #111 0%, transparent 100%); z-index: 11; 
-}
-.hero-title { 
-    font-size: clamp(4rem, 18vw, 10rem) !important; font-weight: 900 !important; 
-    color: white !important; margin: 0 !important; letter-spacing: -6px; 
-}
-.hero-title span { color: #3b82f6; text-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transform: scale(1.1); transition: opacity 1.5s ease, transform 10s linear; }
+.hero-slide.active { opacity: 1; transform: scale(1); z-index: 2; }
+.hero-overlay { position: relative; z-index: 10; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); }
+.hero-bottom-gradient { position: absolute; bottom: 0; width: 100%; height: 200px; background: linear-gradient(to top, #111 0%, transparent 100%); z-index: 11; }
 
-.typing-container { margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 4vw, 2rem); color: #cbd5e1; }
-.cursor { animation: blink 0.8s infinite; color: #3b82f6; font-weight: bold; }
+.hero-title { font-size: clamp(3.5rem, 15vw, 9rem) !important; font-weight: 900 !important; color: white !important; letter-spacing: -5px; }
+.hero-title span { color: #3b82f6; }
+
+.typing-container { font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 3vw, 1.8rem); color: #cbd5e1; text-align: center; }
+.cursor { animation: blink 0.8s infinite; color: #3b82f6; }
 @keyframes blink { 50% { opacity: 0; } }
 
-.hero-buttons { margin-top: 3rem; display: flex; gap: 15px; justify-content: center; }
-.btn { 
-    padding: 12px 30px; border-radius: 12px; font-weight: bold; 
-    text-decoration: none !important; text-transform: uppercase; 
-    transition: 0.3s ease; font-size: 0.85rem; letter-spacing: 1px; 
-}
+.hero-buttons { margin-top: 2rem; display: flex; gap: 15px; justify-content: center; }
+.btn { padding: 12px 25px; border-radius: 10px; font-weight: bold; text-decoration: none !important; transition: 0.3s; font-size: 0.8rem; }
 .btn-blue { background: #3b82f6; color: white !important; }
-.btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); }
-.btn-outline { border: 1px solid rgba(255,255,255,0.4); color: white !important; backdrop-filter: blur(5px); }
-.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+.btn-outline { border: 1px solid white; color: white !important; }
 
-/* --- INTRO BOX --- */
-.intro-box { text-align: center; padding: 6rem 0 4rem 0; max-width: 900px; margin: 0 auto; }
-.intro-title { font-size: clamp(2rem, 5vw, 3.5rem) !important; font-weight: 800 !important; margin-bottom: 2rem !important; color: white; }
-.intro-text { font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.8; color: #94a3b8; }
-
-/* --- SEZIONI --- */
-.section-container { padding: 4rem 0; }
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-tag { 
-    background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 6px 18px; 
-    border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; 
+/* --- 5. CONTENUTO CENTRALE (AMPIO) --- */
+.home-content-wrapper { 
+    max-width: 1400px; /* Qui puoi aumentare a 1600px se lo vuoi ancora più largo */
+    width: 90%; 
+    margin: 0 auto; 
+    padding: 4rem 0;
 }
-.section-title { font-size: clamp(1.8rem, 4vw, 2.8rem) !important; font-weight: 800 !important; margin-top: 15px !important; color: white; }
 
-/* --- GRID & CARD --- */
+.intro-box { text-align: center; margin-bottom: 4rem; }
+.intro-title { font-size: 2.5rem !important; color: white !important; margin-bottom: 1rem !important; }
+.intro-text { font-size: 1.2rem; color: #94a3b8; line-height: 1.7; }
+
+/* --- 6. GRID E CARD --- */
 .tuxpi-cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 .tux-card {
-    position: relative; height: 350px; border-radius: 24px; overflow: hidden;
+    position: relative; height: 320px; border-radius: 20px; overflow: hidden;
     display: flex; align-items: flex-end; text-decoration: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: 0.4s ease;
 }
-.card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.4); transition: 0.6s; z-index: 1; }
-.card-content { 
-    position: relative; z-index: 2; padding: 30px; width: 100%; 
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); 
-}
-.card-icon { font-size: 2.5rem; margin-bottom: 15px; }
-.tux-card h3 { color: #fff !important; font-size: 1.5rem !important; font-weight: 700 !important; margin-bottom: 8px !important; }
-.tux-card p { color: #94a3b8 !important; font-size: 0.95rem !important; line-height: 1.5; }
+.card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; filter: brightness(0.4); transition: 0.5s; }
+.card-content { position: relative; z-index: 2; padding: 25px; width: 100%; background: linear-gradient(to top, black, transparent); }
+.card-icon { font-size: 2rem; margin-bottom: 10px; }
+.tux-card h3 { color: white !important; font-size: 1.4rem !important; margin-bottom: 5px !important; }
+.tux-card p { color: #94a3b8 !important; font-size: 0.9rem !important; }
 
-.tux-card:hover { transform: translateY(-12px); border-color: #3b82f6 !important; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
-.tux-card:hover .card-bg { filter: brightness(0.6) scale(1.1); }
+.tux-card:hover { transform: translateY(-10px); border-color: #3b82f6 !important; }
+.tux-card:hover .card-bg { filter: brightness(0.6) scale(1.05); }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
-    .tuxpi-hero-container { height: 80vh; }
     .hero-buttons { flex-direction: column; align-items: center; }
     .btn { width: 80%; text-align: center; }
-    .home-content-wrapper { width: 90%; }
 }
 </style>
